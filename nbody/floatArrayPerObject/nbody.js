@@ -150,30 +150,7 @@ class NBodySystem {
     }
     this.bodies[0].offsetMomentum(px,py,pz);
   }
-  // advance(dt){
-  //   var bodies, i,j, dx,dy,dz, distance, mag;
-  //   for (i=0; i<this.bodies.length; i++) {
-  //       for (j=i+1; j<this.bodies.length; j++) {
-  //          dx = this.bodies[i].x - this.bodies[j].x;
-  //          dy = this.bodies[i].y - this.bodies[j].y;
-  //          dz = this.bodies[i].z - this.bodies[j].z;
-
-  //          distance = Math.sqrt(dx*dx + dy*dy + dz*dz);
-  //          mag = dt / (distance * distance * distance);
-
-  //         this.bodies[i].vx -= dx * this.bodies[j].mass * mag;
-  //         this.bodies[i].vy -= dy * this.bodies[j].mass * mag;
-  //         this.bodies[i].vz -= dz * this.bodies[j].mass * mag;
-
-  //         this.bodies[j].vx += dx * this.bodies[i].mass * mag;
-  //         this.bodies[j].vy += dy * this.bodies[i].mass * mag;
-  //         this.bodies[j].vz += dz * this.bodies[i].mass * mag;
-  //       }
-  //       this.bodies[i].x += dt * this.bodies[i].vx;
-  //       this.bodies[i].y += dt * this.bodies[i].vy;
-  //       this.bodies[i].z += dt * this.bodies[i].vz;
-  //   }
-  // }  
+ 
   advance(dt){
     var bodies = this.bodies, 
       i=0, 
@@ -214,46 +191,7 @@ class NBodySystem {
         bodyi.z += dt * bodyi.vz;
     }
   }  
-  // advance_asm(dt){
-  //   var bodies = this.bodies, 
-  //     i=0|0, 
-  //     j=0|0, 
-  //     bodyi = bodies[0], 
-  //     imass = +0.0, 
-  //     jmass = +0.0, 
-  //     dx = +0.0,
-  //     dy = +0.0,
-  //     dz = +0.0, 
-  //     distance = +0.0, 
-  //     mag = +0.0, 
-  //     bodyj = bodies[0];
-    
-  //   for (;i<bodies.length|0; i=(i+1)|0) {
-  //        bodyi = bodies[i|0];
-  //        imass = bodyi.mass
-  //       for (j=(i+1)|0; j<bodies.length|0; j=(j+1)|0) {
-  //          bodyj = bodies[j|0];
-  //          jmass = +bodyj.mass;
-  //          dx = +(bodyi.x - bodyj.x);
-  //          dy = +(bodyi.y - bodyj.y);
-  //          dz = +(bodyi.z - bodyj.z);
 
-  //          distance = +Math.sqrt(dx*dx + dy*dy + dz*dz);
-  //          mag = +dt / (distance * distance * distance);
-
-  //         bodyi.vx = +(bodyi.vx - dx * jmass * mag);
-  //         bodyi.vy = +(bodyi.vy - dy * jmass * mag);
-  //         bodyi.vz = +(bodyi.vz - dz * jmass * mag);
-
-  //         bodyj.vx = +(bodyj.vx + dx * imass * mag);
-  //         bodyj.vy = +(bodyj.vy + dy * imass * mag);
-  //         bodyj.vz = +(bodyj.vz + dz * imass * mag);
-  //       }
-  //       bodyi.x = +(bodyi.x + dt * bodyi.vx);
-  //       bodyi.y = +(bodyi.y + dt * bodyi.vy);
-  //       bodyi.z = +(bodyi.z + dt * bodyi.vz);
-  //   }
-  // }  
   energy(){
     var dx, dy, dz, distance;
     var e = 0.0;
