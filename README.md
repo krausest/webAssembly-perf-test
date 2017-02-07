@@ -1,16 +1,16 @@
 # webAssembly-perf-test
-A simple numeric performance comparison between WebAssembly and Javascript
+A simple numeric performance comparison for WebAssembly vs. Javascript.
 
 This repository contains code to compare the performance of the nbody benchmark from the
-[Computer Language Benchmarks Game](http://benchmarksgame.alioth.debian.org/)
+[Computer Language Benchmarks Game](http://benchmarksgame.alioth.debian.org/) and some custom modifications for the javascript versions
 
 The results from my machine are available on my [blog](http://www.stefankrause.net/wp/?p=405).
 
-Feel free to send pull requests for any correction or improvement.
+Feel free to send me pull requests for any correction or improvements.
 
 #How to run
 
-The javascript version can simply run from the browser. You might want to start it via a simple web server 
+The javascript versions can simply be run from the browser. You might want to start it via a simple web server 
 (e.g. http-server .) and open the nbody.html file in each directory. There's no build step for javascript necessary.
 
 The java version is compiled with `javac nbody` and run with `java nbody 50000000`. It's the [Java #4](http://benchmarksgame.alioth.debian.org/u64q/program.php?test=nbody&lang=java&id=4) version from the Computer Language Benchmarks Game
