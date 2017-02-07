@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NBody webAssembly</title>
+</head>
+<body>
+<script src="loader.js"></script>
+<script>
+loadModule('nbody.wasm').then(instance => {
+    let start = performance.now();
+    let result = {start: instance.exports._start(),
+        end: instance.exports._run(50000000)};
+    let end = performance.now();
+    document.write("<p>"+result.start+"</p>");
+    document.write("<p>"+result.end+"</p>");
+    document.write("<p>Duration "+(end-start)+" msecs</p>");
+    if (Math.abs(-0.169075164-result.start)>0.0000000005) {
+        document.write("<p>Incorrect start energy  "+Math.abs(-0.169075164-result.start)+"</p>");
+    }
+    if (Math.abs(-0.169059907-result.end)>0.0000000005) {
+        document.write("<p>Incorrect end energy "+Math.abs(-0.169059907-result.end)+"</p>");
+    }
+});
+</script>
+</body>
+</html>
