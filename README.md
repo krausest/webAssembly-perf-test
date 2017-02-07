@@ -17,3 +17,5 @@ The java version is compiled with `javac nbody` and run with `java nbody 5000000
 
 The C versions in the c directory can be compiled with `gcc -O3  nbody.c -o nbody` and `gcc -O3 -fomit-frame-pointer -march=native -mfpmath=sse -msse3  nbody_fastest.c -o nbody_fastest`
 They are the [original version](http://benchmarksgame.alioth.debian.org/u64q/program.php?test=nbody&lang=gcc&id=1) and [version #4](http://benchmarksgame.alioth.debian.org/u64q/program.php?test=nbody&lang=gcc&id=4).
+
+The WebAsssembly version is compiled with `emcc nbody.c -O3 -s WASM=1 -s SIDE_MODULE=1 -o nbody.wasm`. You'll have to setup emscripten and binaryen as described on [Compile Emscripten from Source](http://webassembly.org/getting-started/developers-guide/#compile-emscripten-from-source")
